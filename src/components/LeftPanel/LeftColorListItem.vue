@@ -12,8 +12,10 @@ export default {
   ],
   methods: {
     onCheckboxChange() {
-      let hjfhfh = ColorStore.data.find(list => list.name === this.localItem.listName);
-      console.log(hjfhfh)
+      let list = ColorStore.data.find(list => list.name === this.localItem.listName);
+
+      list.checked = !!(this.localItem.checked
+          || list.items.find(item => item.checked));
     }
   },
 }
