@@ -1,29 +1,43 @@
 <script>
-
 import RightColorListItem from "@/components/RightPanel/RightColorListItem.vue";
+import RightColorMixedListItem from "@/components/RightPanel/RightColorMixedListItem.vue";
 
 export default {
-  components: {RightColorListItem},
+  components: {RightColorListItem, RightColorMixedListItem},
   props: [
     'itemList',
   ],
   data() {
     return {
       showSortButton: false,
+      mixedItems: [],
     };
   },
-  methods: {},
+  methods: {
+    randomItem () {
+      this.mixedItems = [];
+      this.itemList.forEach((item) => {
+        for (let i = 1; i <= item.count; i++) {
+          this.mixedItems.push(item);
+        }
+      })
+      this.mixedItems.sort(() => Math.random() - 0.5);
+    }
+  },
 }
 </script>
 
 <template>
   <div class="action-btn" @click="showSortButton = !showSortButton">
     <button v-if="showSortButton">Сортировать</button>
-    <button v-else>Перемешать</button>
+    <button v-else @click="randomItem()">Перемешать</button>
   </div>
 
-  <ul class="color-list">
+  <ul class="color-list" v-if="!showSortButton">
     <RightColorListItem v-for="(item, index) in itemList" v-bind:item="item" v-bind:key="index"></RightColorListItem>
+  </ul>
+  <ul class="color-list" v-else>
+    <RightColorMixedListItem v-bind:items="mixedItems"></RightColorMixedListItem>
   </ul>
 </template>
 

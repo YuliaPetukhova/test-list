@@ -12,13 +12,18 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    deleteItemColor (e) {
+      e.preventDefault();
+      this.localItem.count--;
+    }
+  },
 }
 </script>
 
 <template>
   <div class="color-list-item" v-if="item.checked">
-    <input disabled type="color" class="square" v-for="(e, i) in localItem.count" :key="i" :value="localItem.color">
+    <input readonly @click="deleteItemColor($event)" type="color" class="square" v-for="(e, i) in localItem.count" :key="i" :value="localItem.color">
   </div>
 </template>
 
