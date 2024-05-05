@@ -1,27 +1,24 @@
 <script>
+import {ref} from 'vue'
+
 export default {
+  setup(props) {
+    const localItem = ref(props.item);
+    return {localItem: localItem}
+  },
   props: [
     'item',
   ],
-  data() {
-    return {
-    };
-  },
-  methods: {
-    onInput(e) {
-      console.log(e);
-    },
-  },
 }
 </script>
 
 <template>
   <li class="color-list-item">
     <label>
-      <input type="checkbox" class="checkbox" :checked="item.checked" @input="onInput($event.target.checked)">
+      <input type="checkbox" class="checkbox" v-model="localItem.checked">
       {{ item.itemName }}
-      <input type="number" min="0" :value="item.number" @input="onInput($event.target.value)">
-      <input type="color" class="color" :value="item.color" @input="onInput($event.target.value)">
+      <input type="number" min="0" v-model="localItem.number">
+      <input type="color" class="color" v-model="localItem.color">
     </label>
   </li>
 </template>

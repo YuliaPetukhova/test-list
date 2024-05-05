@@ -15,7 +15,4 @@ export const ColorStore = reactive({
             'item4': {'itemName': 'item4', 'color': '#540c0c', 'number': 1, 'checked': true, 'listName': 'list2'},
         },
     },
-    getData() {
-        console.log(this.data);
-    },
 })
