@@ -18,7 +18,7 @@ export default {
         {{ listName }}
       </label>
     </div>
-    <RightColorList v-bind:itemList="itemList"></RightColorList>
+    <RightColorList v-bind:itemList="itemList.items"></RightColorList>
   </li>
 </template>
 

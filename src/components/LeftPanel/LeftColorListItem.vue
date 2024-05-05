@@ -1,5 +1,6 @@
 <script>
 import {ref} from 'vue'
+import {ColorStore} from "@/data/ColorStore";
 
 export default {
   setup(props) {
@@ -9,13 +10,19 @@ export default {
   props: [
     'item',
   ],
+  methods: {
+    onCheckboxChange() {
+      let hjfhfh = ColorStore.data.find(list => list.name === this.localItem.listName);
+      console.log(hjfhfh)
+    }
+  },
 }
 </script>
 
 <template>
   <li class="color-list-item">
     <label>
-      <input type="checkbox" class="checkbox" v-model="localItem.checked">
+      <input type="checkbox" class="checkbox" v-model="localItem.checked" @change="onCheckboxChange">
       {{ item.itemName }}
       <input type="number" min="0" v-model="localItem.count">
       <input type="color" class="color" v-model="localItem.color">

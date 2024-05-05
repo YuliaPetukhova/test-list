@@ -17,10 +17,9 @@ export default {
 <template>
   <ul class="list">
     <LeftListItem
-        v-for="(itemList, listName) in ColorStore.data"
+        v-for="(itemList, index) in ColorStore.data"
         v-bind:itemList="itemList"
-        v-bind:listName="listName"
-        v-bind:key="listName"></LeftListItem>
+        v-bind:key="index"></LeftListItem>
   </ul>
 </template>
 

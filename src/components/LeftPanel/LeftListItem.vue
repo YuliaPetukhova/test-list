@@ -10,7 +10,6 @@ export default {
   },
   props: [
       'itemList',
-      'listName',
   ],
   data() {
     return {
@@ -18,21 +17,18 @@ export default {
     };
   },
   methods: {
-    onListCheckboxClick(isChecked) {
-      for (let localItem in this.localItemList) {
-        this.localItemList[localItem].checked = isChecked;
-      }
+    onListCheckboxClick() {
+      this.localItemList.items.forEach((item) => {
+        item.checked = !this.localItemList.checked;
+      });
     },
     changeCheckboxMark() {
-      console.log('changeCheckboxMark')
-      let checkedItems = Object.values(this.localItemList)
+      let checkedItems = this.localItemList.items
           .filter((el) => {
             return el.checked;
           }).length;
 
-      // console.log(checkedItems);
-      // console.log(Object.values(this.localItemList).length);
-      if (checkedItems && checkedItems < Object.values(this.localItemList).length) {
+      if (checkedItems && checkedItems < this.localItemList.items.length) {
         return 'checkbox-dot'
       }
     }
@@ -48,12 +44,12 @@ export default {
         <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
       </button>
       <label class="check" :class="changeCheckboxMark()">
-        <input type="checkbox" class="check__input" @click="onListCheckboxClick($event.target.checked)">
+        <input type="checkbox" class="check__input" v-model="this.localItemList.checked" @click="onListCheckboxClick()">
         <span></span>
-        {{ listName }}
+        {{ itemList.name }}
       </label>
     </p>
-    <LeftColorList v-if="showColorList" v-bind:itemList="itemList"></LeftColorList>
+    <LeftColorList v-if="showColorList" v-bind:itemList="itemList.items"></LeftColorList>
   </li>
 </template>
 
