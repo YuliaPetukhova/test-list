@@ -1,6 +1,6 @@
 <script>
 
-import LeftColorListItem from "@/components/LeftColorListItem.vue";
+import LeftColorListItem from "@/components/LeftPanel/LeftColorListItem.vue";
 
 export default {
   components: {LeftColorListItem},

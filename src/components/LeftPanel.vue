@@ -1,5 +1,5 @@
 <script>
-import LeftList from "@/components/LeftList.vue";
+import LeftList from "@/components/LeftPanel/LeftList.vue";
 
 export default {
   components: {LeftList},

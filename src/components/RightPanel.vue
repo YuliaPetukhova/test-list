@@ -1,5 +1,5 @@
 <script>
-import RightList from "@/components/RightList.vue";
+import RightList from "@/components/RightPanel/RightList.vue";
 
 export default {
   components: {RightList},

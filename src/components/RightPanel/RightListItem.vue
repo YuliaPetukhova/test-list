@@ -1,6 +1,6 @@
 <script>
 
-import RightColorList from "@/components/RightColorList.vue";
+import RightColorList from "@/components/RightPanel/RightColorList.vue";
 
 export default {
   components: {RightColorList},
@@ -21,8 +21,8 @@ export default {
   <li class="list-item">
     <p class="list-label">
       <button @click="showColorList = !showColorList">
-        <img v-if="showColorList" src="../../public/вниз.png" alt="Стрелка вниз">
-        <img v-else src="../../public/вперед.png" alt="Стрелка вперед">
+        <img v-if="showColorList" src="../../../public/вниз.png" alt="Стрелка вниз">
+        <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
       </button>
       <label class="check">
         {{ index }}

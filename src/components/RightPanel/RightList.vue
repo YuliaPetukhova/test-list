@@ -1,9 +1,9 @@
 <script>
-import LeftListItem from "@/components/LeftListItem.vue";
 import {ColorStore} from "@/data/ColorStore";
+import RightListItem from "@/components/RightPanel/RightListItem.vue";
 
 export default {
-  components: {LeftListItem},
+  components: {RightListItem},
   data() {
     return {
       ColorStore,
@@ -14,13 +14,15 @@ export default {
 }
 </script>
 
+
 <template>
   <ul class="list">
-    <LeftListItem
+    <RightListItem
         v-for="(list, index) in ColorStore.data"
         v-bind:list="list"
         v-bind:index="index"
-        v-bind:key="index"></LeftListItem>
+        v-bind:key="index"
+    ></RightListItem>
   </ul>
 </template>
 

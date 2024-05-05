@@ -1,6 +1,6 @@
 <script>
 
-import RightColorListItem from "@/components/RightColorListItem.vue";
+import RightColorListItem from "@/components/RightPanel/RightColorListItem.vue";
 
 export default {
   components: {RightColorListItem},
