@@ -8,7 +8,7 @@ export default {
     };
   },
   methods: {
-    getValueInput(e) {
+    onInput(e) {
       console.log(e);
     },
   },
@@ -18,10 +18,10 @@ export default {
 <template>
   <li class="color-list-item">
     <label>
-      <input type="checkbox" class="checkbox" :checked="item.checked" @input="getValueInput($event.target.checked)">
-      {{ item.name }}
-      <input type="number" min="0" :value="item.number" @input="getValueInput($event.target.value)">
-      <input type="color" class="color" :value="item.color" @input="getValueInput($event.target.value)">
+      <input type="checkbox" class="checkbox" :checked="item.checked" @input="onInput($event.target.checked)">
+      {{ item.itemName }}
+      <input type="number" min="0" :value="item.number" @input="onInput($event.target.value)">
+      <input type="color" class="color" :value="item.color" @input="onInput($event.target.value)">
     </label>
   </li>
 </template>

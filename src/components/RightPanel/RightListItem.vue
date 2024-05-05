@@ -5,8 +5,8 @@ import RightColorList from "@/components/RightPanel/RightColorList.vue";
 export default {
   components: {RightColorList},
   props: [
-    'list',
-    'index',
+    'itemList',
+    'listName',
   ],
   data() {
     return {
@@ -25,10 +25,10 @@ export default {
         <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
       </button>
       <label class="check">
-        {{ index }}
+        {{ listName }}
       </label>
     </p>
-    <RightColorList v-if="showColorList" v-bind:itemList="list"></RightColorList>
+    <RightColorList v-if="showColorList" v-bind:itemList="itemList"></RightColorList>
   </li>
 </template>
 

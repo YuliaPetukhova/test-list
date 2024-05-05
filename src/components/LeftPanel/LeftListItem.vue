@@ -4,8 +4,8 @@ import LeftColorList from "@/components/LeftPanel/LeftColorList.vue";
 export default {
   components: {LeftColorList},
   props: [
-      'list',
-      'index',
+      'itemList',
+      'listName',
   ],
   data() {
     return {
@@ -13,8 +13,8 @@ export default {
     };
   },
   methods: {
-    checkedItems() {
-      console.log('hvgbh')
+    onListCheckboxClick() {
+      console.log('onListCheckboxClick')
     },
   }
 }
@@ -28,12 +28,12 @@ export default {
         <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
       </button>
       <label class="check">
-        <input type="checkbox" class="check__input" @click="checkedItems()">
+        <input type="checkbox" class="check__input" @click="onListCheckboxClick()">
         <span></span>
-        {{ index }}
+        {{ listName }}
       </label>
     </p>
-    <LeftColorList v-if="showColorList" v-bind:itemList="list"></LeftColorList>
+    <LeftColorList v-if="showColorList" v-bind:itemList="itemList"></LeftColorList>
   </li>
 </template>
 

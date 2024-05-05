@@ -14,7 +14,7 @@ export default {
   <li class="color-list-item" v-if="item.checked">
 
     <div>
-      {{ item.name }} : {{ item.color }} - {{ item.number }}
+      {{ item.itemName }} : {{ item.color }} - {{ item.number }}
     </div>
   </li>
 </template>
