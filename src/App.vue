@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="panel">
     <ListComponent class="left-block"></ListComponent>
     <RightPanel
         aria-title="right"
@@ -33,20 +33,21 @@ export default {
   margin-top: 60px;
 }
 
+.panel{
+  display: flex;
+  height: 100%;
+}
+
 .left-block {
-  position: fixed;
-  left: 0.5em;
-  height: 90%;
+  margin-left: 0;
+  margin-right: 0;
   width: 45%;
   border: 1px solid black;
-  top: 1em;
 }
 
 .right-block {
-  position: fixed;
-  right: 0.5em;
-  top: 1em;
-  height: 90%;
+  margin-left: auto;
+  margin-right: 0;
   width: 45%;
   border: 1px solid black;
 }

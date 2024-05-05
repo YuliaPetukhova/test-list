@@ -17,7 +17,7 @@ export default {
     <label>
       <input type="checkbox" class="checkbox" v-model="localItem.checked">
       {{ item.itemName }}
-      <input type="number" min="0" v-model="localItem.number">
+      <input type="number" min="0" v-model="localItem.count">
       <input type="color" class="color" v-model="localItem.color">
     </label>
   </li>

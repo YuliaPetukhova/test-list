@@ -8,31 +8,37 @@ export default {
     'itemList',
     'listName',
   ],
-  data() {
-    return {
-      showColorList: false,
-    };
-  },
-  methods: {}
 }
 </script>
 
 <template>
   <li class="list-item">
-    <p class="list-label">
-      <button @click="showColorList = !showColorList">
-        <img v-if="showColorList" src="../../../public/вниз.png" alt="Стрелка вниз">
-        <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
-      </button>
+    <div class="list-label">
       <label class="check">
         {{ listName }}
       </label>
-    </p>
-    <RightColorList v-if="showColorList" v-bind:itemList="itemList"></RightColorList>
+    </div>
+    <RightColorList v-bind:itemList="itemList"></RightColorList>
   </li>
 </template>
 
 <style scoped>
+.list-item {
+  cursor: pointer;
+  margin: 0.5em 1em 1em 0;
+  border: 1px solid black;
+}
+
+.list-label {
+  cursor: pointer;
+  margin: 0.5em;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.check {
+  cursor: pointer;
+}
 input {
   outline: none;
   width: 30px;
@@ -60,16 +66,5 @@ label span {
 input[type="color" i]::-webkit-color-swatch-wrapper {
   padding: 0;
   border: none;
-}
-
-button {
-  all: unset;
-  cursor: pointer;
-  margin-right: 0.5em;
-}
-
-img {
-  width: 20px;
-  height: 20px;
 }
 </style>

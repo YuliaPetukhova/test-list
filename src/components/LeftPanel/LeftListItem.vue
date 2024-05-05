@@ -1,8 +1,13 @@
 <script>
 import LeftColorList from "@/components/LeftPanel/LeftColorList.vue";
+import {ref} from "vue";
 
 export default {
   components: {LeftColorList},
+  setup(props) {
+    const localItemList = ref(props.itemList);
+    return {localItemList: localItemList}
+  },
   props: [
       'itemList',
       'listName',
@@ -13,9 +18,24 @@ export default {
     };
   },
   methods: {
-    onListCheckboxClick() {
-      console.log('onListCheckboxClick')
+    onListCheckboxClick(isChecked) {
+      for (let localItem in this.localItemList) {
+        this.localItemList[localItem].checked = isChecked;
+      }
     },
+    changeCheckboxMark() {
+      console.log('changeCheckboxMark')
+      let checkedItems = Object.values(this.localItemList)
+          .filter((el) => {
+            return el.checked;
+          }).length;
+
+      // console.log(checkedItems);
+      // console.log(Object.values(this.localItemList).length);
+      if (checkedItems && checkedItems < Object.values(this.localItemList).length) {
+        return 'checkbox-dot'
+      }
+    }
   }
 }
 </script>
@@ -27,8 +47,8 @@ export default {
         <img v-if="showColorList" src="../../../public/вниз.png" alt="Стрелка вниз">
         <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
       </button>
-      <label class="check">
-        <input type="checkbox" class="check__input" @click="onListCheckboxClick()">
+      <label class="check" :class="changeCheckboxMark()">
+        <input type="checkbox" class="check__input" @click="onListCheckboxClick($event.target.checked)">
         <span></span>
         {{ listName }}
       </label>
@@ -40,21 +60,19 @@ export default {
 <style scoped>
 input {
   outline: none;
-  width: 30px;
   padding: 0;
-  margin-left: 15px;
-  border: 1px solid rgba(86, 84, 84, 0.97);
 }
 
-label span {
-  height: 10px;
-  width: 10px;
+.checkbox-dot>span {
+  height: 11px;
+  width: 11px;
   border: 1px solid grey;
   display: inline-block;
   position: relative;
+  border-radius: 3px;
 }
 
-.check__input {
+.checkbox-dot>.check__input {
   position: absolute;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -62,7 +80,7 @@ label span {
   border: none;
 }
 
-[type=checkbox]:checked + span:before {
+.checkbox-dot>[type=checkbox]:checked + span:before {
   content: '\002E';
   position: absolute;
   font-size: 30px;

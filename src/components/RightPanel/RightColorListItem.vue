@@ -1,5 +1,11 @@
 <script>
+import {ref} from "vue";
+
 export default {
+  setup(props) {
+    const localItem = ref(props.item);
+    return {localItem: localItem}
+  },
   props: [
     'item',
   ],
@@ -11,41 +17,30 @@ export default {
 </script>
 
 <template>
-  <li class="color-list-item" v-if="item.checked">
-
-    <div>
-      {{ item.itemName }} : {{ item.color }} - {{ item.number }}
-    </div>
-  </li>
+  <div class="color-list-item" v-if="item.checked">
+    <input disabled type="color" class="square" v-for="(e, i) in localItem.count" :key="i" :value="localItem.color">
+  </div>
 </template>
 
 <style scoped>
+.color-list-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+.square {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 5px;
+}
+
 input {
   outline: none;
-  width: 30px;
   padding: 0;
-  margin-left: 15px;
-  border: 1px solid rgba(86, 84, 84, 0.97);
-}
-
-label span {
-  height: 10px;
-  width: 10px;
-  border: 1px solid grey;
-  display: inline-block;
-  position: relative;
-}
-
-[type=checkbox]:checked + span:before {
-  content: '\002E';
-  position: absolute;
-  font-size: 30px;
-  top: -23px;
-  left: 1px;
 }
 
 input[type="color" i]::-webkit-color-swatch-wrapper {
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 </style>

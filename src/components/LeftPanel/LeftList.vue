@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .list {
+  padding: 1em;
   list-style-type: none;
 }
 </style>
