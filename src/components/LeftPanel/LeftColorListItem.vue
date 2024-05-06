@@ -37,8 +37,9 @@ input {
   outline: none;
   width: 30px;
   padding: 0;
-  margin-left: 15px;
-  border: 1px solid rgba(86, 84, 84, 0.97);
+  margin-left: 2em;
+  border: none;
+  cursor: pointer;
 }
 
 label span {
@@ -60,5 +61,6 @@ label span {
 input[type="color" i]::-webkit-color-swatch-wrapper {
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 </style>

@@ -7,10 +7,8 @@ export default {
   data() {
     return {
       ColorStore,
-      listNumber: 4,
     };
   },
-  methods: {},
 }
 </script>
 
@@ -25,7 +23,9 @@ export default {
 
 <style scoped>
 .list {
+  display: flex;
   padding: 1em;
   list-style-type: none;
+  flex-direction: column;
 }
 </style>

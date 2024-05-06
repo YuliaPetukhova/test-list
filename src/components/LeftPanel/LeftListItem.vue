@@ -9,7 +9,7 @@ export default {
     return {localItemList: localItemList}
   },
   props: [
-      'itemList',
+    'itemList',
   ],
   data() {
     return {
@@ -43,8 +43,13 @@ export default {
         <img v-if="showColorList" src="../../../public/вниз.png" alt="Стрелка вниз">
         <img v-else src="../../../public/вперед.png" alt="Стрелка вперед">
       </button>
-      <label class="check" :class="changeCheckboxMark()">
-        <input type="checkbox" class="check__input" v-model="this.localItemList.checked" @click="onListCheckboxClick()">
+      <label :class="changeCheckboxMark()">
+        <input
+            type="checkbox"
+            class="check__input"
+            v-model="this.localItemList.checked"
+            @click="onListCheckboxClick()"
+        >
         <span></span>
         {{ itemList.name }}
       </label>
@@ -54,12 +59,20 @@ export default {
 </template>
 
 <style scoped>
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 input {
   outline: none;
   padding: 0;
+  margin: 0;
 }
 
-.checkbox-dot>span {
+.checkbox-dot > span {
   height: 11px;
   width: 11px;
   border: 1px solid grey;
@@ -68,7 +81,7 @@ input {
   border-radius: 3px;
 }
 
-.checkbox-dot>.check__input {
+.checkbox-dot > .check__input {
   position: absolute;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -76,7 +89,7 @@ input {
   border: none;
 }
 
-.checkbox-dot>[type=checkbox]:checked + span:before {
+.checkbox-dot > [type=checkbox]:checked + span:before {
   content: '\002E';
   position: absolute;
   font-size: 30px;

@@ -3,7 +3,6 @@ import RightList from "@/components/RightPanel/RightList.vue";
 
 export default {
   components: {RightList},
-  methods: {},
 }
 </script>
 
@@ -13,5 +12,4 @@ export default {
 
 
 <style scoped>
-
 </style>

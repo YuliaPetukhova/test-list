@@ -7,13 +7,10 @@ export default {
   data() {
     return {
       ColorStore,
-      listNumber: 4,
     };
   },
-  methods: {},
 }
 </script>
-
 
 <template>
   <ul class="list">

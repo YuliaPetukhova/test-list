@@ -9,11 +9,8 @@ export default {
   props: [
     'item',
   ],
-  data() {
-    return {};
-  },
   methods: {
-    deleteItemColor (e) {
+    deleteItemColor(e) {
       e.preventDefault();
       this.localItem.count--;
     }
@@ -22,25 +19,35 @@ export default {
 </script>
 
 <template>
-  <div class="color-list-item" v-if="item.checked">
-    <input readonly @click="deleteItemColor($event)" type="color" class="square" v-for="(e, i) in localItem.count" :key="i" :value="localItem.color">
-  </div>
+  <li v-if="item.checked">
+    <input
+        readonly
+        @click="deleteItemColor($event)"
+        type="color"
+        class="square"
+        v-for="(e, i) in localItem.count"
+        :key="i"
+        :value="localItem.color">
+  </li>
 </template>
 
 <style scoped>
-.color-list-item {
+li {
   display: flex;
   flex-wrap: wrap;
 }
+
 .square {
   width: 1.5em;
   height: 1.5em;
-  margin: 5px;
+  margin: 0.3em;
 }
 
 input {
   outline: none;
   padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 input[type="color" i]::-webkit-color-swatch-wrapper {

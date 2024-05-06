@@ -9,9 +9,6 @@ export default {
   props: [
     'items',
   ],
-  data() {
-    return {};
-  },
   methods: {
     deleteItemColor (e, item) {
       e.preventDefault();
@@ -25,14 +22,18 @@ export default {
 </script>
 
 <template>
-  <div class="color-list-item">
+  <li class="color-list-item">
     <span v-for="(localItem, i) in localItems" :key="i">
-      <input readonly @click="deleteItemColor($event, localItem)" type="color"
-             class="square" :value="localItem.color"
-             v-if="localItem.checked"
+      <input
+          readonly
+          @click="deleteItemColor($event, localItem)"
+          type="color"
+          class="square"
+          :value="localItem.color"
+          v-if="localItem.checked"
       >
     </span>
-  </div>
+  </li>
 </template>
 
 <style scoped>
@@ -40,15 +41,18 @@ export default {
   display: flex;
   flex-wrap: wrap;
 }
+
 .square {
   width: 1.5em;
   height: 1.5em;
-  margin: 5px;
+  margin: 0.3em;
 }
 
 input {
   outline: none;
   padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 input[type="color" i]::-webkit-color-swatch-wrapper {

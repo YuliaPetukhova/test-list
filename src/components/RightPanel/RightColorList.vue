@@ -14,7 +14,7 @@ export default {
     };
   },
   methods: {
-    randomItem () {
+    randomItem() {
       this.mixedItems = [];
       this.itemList.forEach((item) => {
         for (let i = 1; i <= item.count; i++) {
@@ -33,10 +33,14 @@ export default {
     <button v-else @click="randomItem()">Перемешать</button>
   </div>
 
-  <ul class="color-list" v-if="!showSortButton">
-    <RightColorListItem v-for="(item, index) in itemList" v-bind:item="item" v-bind:key="index"></RightColorListItem>
+  <ul v-if="!showSortButton">
+    <RightColorListItem
+        v-for="(item, index) in itemList"
+        v-bind:item="item"
+        v-bind:key="index"
+    ></RightColorListItem>
   </ul>
-  <ul class="color-list" v-else>
+  <ul v-else>
     <RightColorMixedListItem v-bind:items="mixedItems"></RightColorMixedListItem>
   </ul>
 </template>
@@ -44,9 +48,6 @@ export default {
 <style scoped>
 ul {
   padding: 0;
-}
-
-.color-list {
   list-style-type: none;
 }
 
@@ -54,7 +55,8 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 0.5em;
+  margin: 0;
+  padding: 0.5em;
 }
 
 button {

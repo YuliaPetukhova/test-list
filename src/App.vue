@@ -1,12 +1,7 @@
 <template>
   <main class="panel">
     <ListComponent class="left-block"></ListComponent>
-    <RightPanel
-        aria-title="right"
-        title="List right"
-        class="right-block">
-    </RightPanel>
-
+    <RightPanel class="right-block"></RightPanel>
   </main>
 </template>
 
@@ -33,7 +28,7 @@ export default {
   margin-top: 60px;
 }
 
-.panel{
+.panel {
   display: flex;
   height: 100%;
 }
