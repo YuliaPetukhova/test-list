@@ -22,13 +22,16 @@ export default {
         }
       })
       this.mixedItems.sort(() => Math.random() - 0.5);
-    }
+    },
+    toggleSortButton() {
+      this.showSortButton = !this.showSortButton;
+    },
   },
 }
 </script>
 
 <template>
-  <div class="action-btn" @click="showSortButton = !showSortButton">
+  <div class="action-btn" @click="toggleSortButton">
     <button v-if="showSortButton">Сортировать</button>
     <button v-else @click="randomItem()">Перемешать</button>
   </div>
